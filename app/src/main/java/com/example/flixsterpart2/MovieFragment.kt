@@ -5,11 +5,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import org.json.JSONObject
+
+private const val API_KEY = "abe398e8fe2ce2cf7bd6fa715eb62aff"
+private const val MOVIE_SEARCH_URL = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${API_KEY}"
 
 class MovieFragment: Fragment(), OnListFragmentInteractionListener {
     override fun onCreateView(
@@ -27,9 +35,25 @@ class MovieFragment: Fragment(), OnListFragmentInteractionListener {
 
     private fun updateAdapter(progressBar: ContentLoadingProgressBar, recyclerView: RecyclerView) {
         progressBar.show()
-    }
 
-    override fun onItemClick(item: Movie) {
-        Toast.makeText(context, "test: ", Toast.LENGTH_LONG).show()
+        val queue = Volley.newRequestQueue(context)
+        val stringRequest = StringRequest(Request.Method.GET, MOVIE_SEARCH_URL,
+            { response ->
+                progressBar.hide()
+                Log.d("CUSTOM--->", response.toString())
+
+                val obj = JSONObject(response).getJSONArray("results").toString()
+                val gson = Gson()
+                val arrayType = object: TypeToken<List<Movie>>() {}.type
+                val models: List<Movie> = gson.fromJson(obj, arrayType)
+
+                recyclerView.adapter = context?.let { MovieRecyclerViewAdapter(it, models, this@MovieFragment) }
+            },
+            { error ->
+                progressBar.hide()
+                Log.e("CUSTOM--->", error.message.toString())
+            })
+        queue.add(stringRequest)
+
     }
 }
