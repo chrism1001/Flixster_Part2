@@ -26,7 +26,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-[![Imgur]([https://imgur.com/Iz6zJux](https://imgur.com/a/aF9iCLC))]([https://imgur.com/Iz6zJux](https://imgur.com/a/aF9iCLC))
+[![Imgur](https://imgur.com/fxe2qD4)](https://imgur.com/fxe2qD4)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ... [ScreenToGif](https://www.screentogif.com/)
