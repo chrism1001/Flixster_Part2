@@ -1,6 +1,7 @@
 package com.example.flixsterpart2
 
 import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -11,10 +12,14 @@ data class Movie(
     val title: String?,
     @SerialName("overview")
     val overview: String?,
+    @SerialName("pupularity")
+    val popularity: String?,
+    @SerialName("release_date")
+    val release_date: String?,
     @SerialName("poster_path")
-    val posterPath: String?,
+    val posterPath: String?
 ) : java.io.Serializable {
-    val posterPathUrl = "https://image.tmdb.org/t/p/w500${posterPath?.firstOrNull()}"
+    val posterPathUrl = "https://image.tmdb.org/t/p/w500/${posterPath}"
 }
 
 @Keep

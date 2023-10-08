@@ -28,7 +28,8 @@ class MovieFragment: Fragment(), OnListFragmentInteractionListener {
         val progressBar = view.findViewById<View>(R.id.progress) as ContentLoadingProgressBar
         val recyclerView = view.findViewById<View>(R.id.movie_list) as RecyclerView
         val context = view.context
-        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        // recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         updateAdapter(progressBar, recyclerView)
         return view
     }

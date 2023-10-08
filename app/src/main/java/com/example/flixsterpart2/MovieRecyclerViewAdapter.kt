@@ -51,7 +51,7 @@ class MovieRecyclerViewAdapter(
 
         holder.mMovieTitle.text = movie.title
 
-        Log.e("CUSTOM--->", "url " + movie.posterPath)
+        Log.e("CUSTOM--->", "url " + movie.posterPathUrl)
         Log.e("CUSTOM--->", "title " + movie.title)
 
         Glide.with(holder.itemView)
