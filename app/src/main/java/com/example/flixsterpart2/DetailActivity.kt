@@ -29,10 +29,10 @@ class DetailActivity : AppCompatActivity() {
         mediaTitleView.text = movie.title
         mediaOverviewView.text = movie.overview
         mediaPopularity.text = movie.popularity
-        mediaReleaseDate.text = movie.release_date
+        mediaReleaseDate.text = movie.releaseDate
 
         Glide.with(this)
-            .load(movie.posterPathUrl)
+            .load("https://image.tmdb.org/t/p/w500/" + movie.posterPath)
             .centerInside()
             .into(mediaImageView)
     }

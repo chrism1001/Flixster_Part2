@@ -51,11 +51,11 @@ class MovieRecyclerViewAdapter(
 
         holder.mMovieTitle.text = movie.title
 
-        Log.e("CUSTOM--->", "url " + movie.posterPathUrl)
+        Log.e("CUSTOM--->", "url " + movie.posterPath)
         Log.e("CUSTOM--->", "title " + movie.title)
 
         Glide.with(holder.itemView)
-            .load(movie.posterPathUrl)
+            .load("https://image.tmdb.org/t/p/w500/" + movie.posterPath)
             .centerInside()
             .into(holder.mMoviePoster)
     }
