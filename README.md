@@ -4,7 +4,7 @@ Submitted by: **Christopher Mejia**
 
 **Popular Movies** is a movie browsing app that allows users to browse popluar movies this year.
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 ## Required Features
 
